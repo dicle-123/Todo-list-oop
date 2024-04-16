@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+body {
+  width: 100%;
+  background-color: skyblue;
+}
+.container {
+  width: 30rem;
+  margin: 2rem auto;
+}
+
+.container .form {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.form input {
+  flex: 1;
+  padding: 0.7rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+.form .btn {
+  padding: 0.7rem;
+  background-color: darkblue;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+}
