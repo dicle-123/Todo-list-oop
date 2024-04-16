@@ -48,6 +48,11 @@ class UI {
         e.target.parentElement.remove();
       }
       let btnId = e.target.dataset.id;
+      //   remove from array
+      UI.removeFromArray(btnId);
     });
+  }
+  static removeFromArray(id) {
+    todoArr = todoArr.filter((item) => item.id !== +id);
   }
 }
