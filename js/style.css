@@ -36,3 +36,16 @@ body {
   cursor: pointer;
   border: none;
 }
+
+.lists .todo {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  margin-top: 0.5rem;
+  padding: 0.7rem;
+  gap: 0.5rem;
+}
+
+.todo span {
+  cursor: pointer;
+}
