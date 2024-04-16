@@ -18,6 +18,8 @@ form.addEventListener("submit", (e) => {
   UI.displayData();
   UI.clearInput();
   UI.removeTodo();
+  //   add to storage
+  Storage.addTodStorage(todoArr);
 });
 
 // make object instance
@@ -54,5 +56,20 @@ class UI {
   }
   static removeFromArray(id) {
     todoArr = todoArr.filter((item) => item.id !== +id);
+  }
+}
+
+class Storage {
+  static addTodStorage(todoArr) {
+    let storage = localStorage.setItem("todo", JSON.stringify(todoArr));
+    return storage;
+  }
+
+  static getStorage() {
+    let storage =
+      localStorage.getItem("todo") === null
+        ? []
+        : JSON.parse(localStorage.getItem("todo"));
+    return storage;
   }
 }
