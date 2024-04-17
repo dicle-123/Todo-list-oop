@@ -2,19 +2,40 @@ const form = document.querySelector("[data-form]");
 const lists = document.querySelector("[data-lists]");
 const input = document.querySelector("[data-input]");
 
+class Storage {
+  static addTodStorage(todoArr) {
+    let storage = localStorage.setItem("todo", JSON.stringify(todoArr));
+    return storage;
+  }
+
+  static getStorage() {
+    let storage =
+      localStorage.getItem("todo") === null
+        ? []
+        : JSON.parse(localStorage.getItem("todo"));
+    return storage;
+  }
+}
+
 // empty array
-let todoArr = [];
+let todoArr = Storage.getStorage();
 
 // form parth
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  const todoTeext = input.value.trim();
+
+  if (input.value === "") {
+    return;
+  }
+  if (todoArr.some((item) => item.todo === todoTeext)) {
+    return;
+  }
   let id = Math.random() * 1000000;
 
   const todo = new Todo(id, input.value);
-
   todoArr = [...todoArr, todo];
-
   UI.displayData();
   UI.clearInput();
   UI.removeTodo();
@@ -56,20 +77,11 @@ class UI {
   }
   static removeFromArray(id) {
     todoArr = todoArr.filter((item) => item.id !== +id);
+    Storage.addTodStorage(todoArr);
   }
 }
 
-class Storage {
-  static addTodStorage(todoArr) {
-    let storage = localStorage.setItem("todo", JSON.stringify(todoArr));
-    return storage;
-  }
-
-  static getStorage() {
-    let storage =
-      localStorage.getItem("todo") === null
-        ? []
-        : JSON.parse(localStorage.getItem("todo"));
-    return storage;
-  }
-}
+window.addEventListener("DOMContentLoaded", () => {
+  UI.displayData();
+  UI.removeTodo();
+});
