@@ -12,7 +12,7 @@ This project is a Todo List application developed using Object-Oriented Programm
 - Overview of task list
 
 # Demo
-You can view the live demo of this project on GitHub Pages: Todo List OOP Demo
+You can view the live demo of this project on GitHub Pages: [Todo List OOP Demo](https://dicle-123.github.io/Todo-list-oop/)
 
 ## Installation
 
